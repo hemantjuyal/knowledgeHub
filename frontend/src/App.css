@@ -1,0 +1,11 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff; /* White background for the app container */
+  color: #343541; /* Dark text for the app container */
+  max-width: 800px; /* Limit width for chat-like appearance */
+  margin: 0 auto; /* Center the app */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}

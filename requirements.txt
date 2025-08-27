@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+langchain
+langchain-google-genai
+google-generativeai
+faiss-cpu
+python-dotenv
+pydantic
+pypdf
+langchain-community
+tqdm
+jupyter
+scikit-learn
+matplotlib
