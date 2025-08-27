@@ -179,3 +179,10 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+frontend/.gitignore
+frontend/node_modules
+frontend/package-lock.json
+/logs/**
+/outputs/**
+/models/**
+.DS_Store
