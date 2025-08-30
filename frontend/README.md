@@ -2,13 +2,13 @@
 
 This directory contains the user interface for the KnowledgeHub application, built with React and Vite. It provides a chat-based interface for users to interact with their documents by sending queries to the KnowledgeHub backend.
 
-## 🚀 Technologies Used
+## Technologies Used
 
 *   **React:** A JavaScript library for building user interfaces.
 *   **Vite:** A fast build tool that provides a lightning-fast development experience.
 *   **API Communication:** Interacts with the FastAPI backend to send user queries and receive AI-generated responses.
 
-## ⚙️ Getting Started
+## Getting Started
 
 To run the frontend application:
 
