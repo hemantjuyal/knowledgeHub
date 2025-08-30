@@ -2,7 +2,7 @@
 
 KnowledgeHub is an agentic AI-powered knowledge base that allows users to interact with their local documents using natural language. It leverages LangChain for orchestration, LangSmith for agent observability, and FAISS for efficient, local vector embeddings and retrieval.
 
-## 🚀 Features
+## Features
 
 *   **Local Document Ingestion:** Upload and process documents stored locally, supporting `.txt`, `.md`, and `.pdf` formats, with a modular design for future image support.
 *   **Agentic AI:** Query documents with conversational agents powered by Large Language Models (LLMs).
@@ -12,7 +12,7 @@ KnowledgeHub is an agentic AI-powered knowledge base that allows users to intera
 *   **Robust Query Handling:** Intelligent routing of queries for greetings, help, and out-of-context questions to optimize performance and provide tailored responses.
 *   **Modular & Extensible:** Plug-and-play architecture to support multiple file formats and databases.
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 *   **LangChain:** Framework for building LLM-powered applications.
 *   **LangSmith:** Observability platform for tracing, debugging, and evaluating LLM agents.
@@ -21,7 +21,7 @@ KnowledgeHub is an agentic AI-powered knowledge base that allows users to intera
 *   **Backend:** FastAPI (Python), Centralized Logging (Python `logging` module).
 *   **Frontend:** React (JavaScript/TypeScript) with Vite, Loading Indicators.
 
-## 🛠️ Configuration
+## Configuration
 
 To get started, create a `.env` file in the root of your project by copying the `.env.example` file. This file is used to store your sensitive API keys and configuration settings.
 
@@ -33,7 +33,7 @@ To get started, create a `.env` file in the root of your project by copying the 
 *   `LANGSMITH_API_KEY`: Your API key for LangSmith.
 *   `LANGSMITH_PROJECT`: The name of your project in LangSmith.
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 knowledgehub/
@@ -95,7 +95,7 @@ knowledgehub/
 └── run.py                    # Launcher (starts the FastAPI backend server)
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these steps to set up and run the KnowledgeHub application locally.
 
@@ -168,7 +168,7 @@ npm run dev --prefix frontend
 *   Open your web browser and navigate to the local URL provided by the frontend server (usually `http://localhost:5173`).
 *   You can now ask questions about the content of your documents. The UI will show processing indicators while the server is working.
 
-## 🗃️ Managing FAISS Indices (Advanced)
+## Managing FAISS Indices (Advanced)
 
 This project supports managing multiple versions of your FAISS knowledge base and dynamically switching between them without restarting the main application.
 
