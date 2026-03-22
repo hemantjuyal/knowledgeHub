@@ -50,6 +50,7 @@ KnowledgeHub is organized into several key modules, each with specific responsib
 The following diagram illustrates the high-level flow of data and interactions within KnowledgeHub:
 
 ```mermaid
+%%{init: {'theme': 'neutral'}}%%
 graph TD
     User([User]) <--> Frontend[Frontend - React/Vite]
     Frontend <--> API[API Layer - FastAPI]
