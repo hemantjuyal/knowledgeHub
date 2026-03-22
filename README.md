@@ -35,65 +35,15 @@ To get started, create a `.env` file in the root of your project by copying the 
 
 ## Project Structure
 
-```
-knowledgehub/
-│
-├── data/                     # Local documents to be processed
-│   ├── images/               # Image documents (for future support)
-│   └── text/                 # Text documents (txt, md, pdf)
-│
-├── faiss_index/              # Parent directory for all FAISS index versions
-│   ├── default/              # Default FAISS index version (e.g., created by `python ingest.py --version default`)
-│   ├── my_new_docs_v1/       # Example versioned index (e.g., created by `python ingest.py --version my_new_docs_v1`)
-│   └── 20250827-005909/      # Example timestamped index (e.g., created by `python ingest.py` without --version)
-│
-├── frontend/                 # User Interface (React)
-│   ├── public/               # Static assets
-│   ├── src/                  # React source code
-│   │   ├── api/              # Functions for backend communication
-│   │   ├── components/       # Reusable UI components
-│   │   │   ├── common/       # Generic components (Button, Input)
-│   │   │   └── layout/       # Major layout components (ChatPane)
-│   │   ├── hooks/            # Custom React hooks (e.g., useChat)
-│   │   ├── App.jsx           # Main application component
-│   │   └── main.jsx          # React entry point
-│   ├── index.html            # Entry HTML file
-│   └── package.json          # Frontend dependencies
-│
-├── notebooks/                # Example workflows and experimentation
-│
-├── src/                      # Core application logic (Backend)
-│   ├── api/                  # API layer (FastAPI)
-│   │   ├── routes/           # API endpoints (e.g., query.py)
-│   │   ├── schemas/          # Pydantic models for req/res
-│   │   └── services/         # Business logic for API routes
-│   │   └── main.py           # FastAPI entrypoint
-│   │
-│   ├── agents/               # LangChain agents and core logic
-│   │
-│   ├── core/                 # Core services (config, logging)
-│   │   ├── config.py         # Centralized configuration
-│   │   ├── logging.py        # Logging/Observability setup
-│   │   └── prompts.py        # Centralized prompt definitions
-│   │
-│   ├── ingestion/            # Document loading and processing
-│   │
-│   └── vector_stores/        # Vector DB setup and interaction
-│       └── faiss_store.py    # (Renamed from embeddings for clarity)
-│
-├── tests/                    # Unit & integration tests
-│   ├── test_ingestion.py
-│   ├── test_embeddings.py
-│   └── test_api.py
-│
-├── src/utils/                # Utility scripts
-├── .env.example              # Environment variable template
-├── ingest.py                 # Script to build/update the FAISS knowledge base
-├── LICENSE
-├── README.md                 # Project documentation
-├── requirements.txt          # Python dependencies
-└── run.py                    # Launcher (starts the FastAPI backend server)
-```
+KnowledgeHub is organized into several key modules, each with specific responsibilities:
+
+*   **Frontend (React/Vite):** A modern web interface that provides a conversational chat experience, manages application state via custom hooks, and communicates with the backend API.
+*   **API Layer (FastAPI):** Exposes RESTful endpoints for querying the knowledge base and administrative tasks like switching between different FAISS index versions.
+*   **Agentic Logic (LangChain):** Orchestrates the AI agents, defining how they interact with LLMs, use tools, and retrieve information from the vector store.
+*   **Ingestion Pipeline:** Handles the processing of local documents (PDF, MD, TXT), including text splitting and generating embeddings for the vector store.
+*   **Vector Store (FAISS):** Manages local persistence and efficient similarity search of document embeddings, supporting multiple versioned indices.
+*   **Core Services:** Provides centralized configuration management, structured logging, and standardized prompt definitions used throughout the application.
+*   **Data & Indices:** Dedicated storage for raw source documents and the generated FAISS vector indices.
 
 ## Getting Started
 
