@@ -33,7 +33,7 @@ To get started, create a `.env` file in the root of your project by copying the 
 *   `LANGSMITH_API_KEY`: Your API key for LangSmith.
 *   `LANGSMITH_PROJECT`: The name of your project in LangSmith.
 
-## Project Structure
+## Architecture Overview
 
 KnowledgeHub is organized into several key modules, each with specific responsibilities:
 
@@ -44,6 +44,26 @@ KnowledgeHub is organized into several key modules, each with specific responsib
 *   **Vector Store (FAISS):** Manages local persistence and efficient similarity search of document embeddings, supporting multiple versioned indices.
 *   **Core Services:** Provides centralized configuration management, structured logging, and standardized prompt definitions used throughout the application.
 *   **Data & Indices:** Dedicated storage for raw source documents and the generated FAISS vector indices.
+
+## System Design
+
+The following diagram illustrates the high-level flow of data and interactions within KnowledgeHub:
+
+```mermaid
+graph TD
+    User([User]) <--> Frontend[Frontend - React/Vite]
+    Frontend <--> API[API Layer - FastAPI]
+
+    subgraph Backend [Backend Services]
+        API <--> Agent[Agentic Logic - LangChain]
+        Agent <--> LLM[LLMs - Google Gemini]
+        Agent <--> VectorStore[Vector Store - FAISS]
+        Ingestion[Ingestion Pipeline] --> VectorStore
+        Docs[(Local Documents)] --> Ingestion
+    end
+
+    VectorStore -.-> Storage[(FAISS Index)]
+```
 
 ## Getting Started
 
@@ -67,15 +87,6 @@ You only need to do this once.
 *   Create a new file named `.env` in the project root by copying from the `.env.example` template.
 *   Open the `.env` file and paste your `GEMINI_API_KEY` and optionally configure LangSmith.
 
-### 2.1. Verifying Gemini Models (Optional)
-
-If you encounter issues with the Gemini API (e.g., `404 Not Found` errors for `gemini-pro`), you can use a utility script to list the models available to your API key. This helps confirm your `GEMINI_API_KEY` is correctly configured and has access to the expected models.
-
-```bash
-python src/utils/model_lister.py
-```
-
-This script will print a list of model names that support the `generateContent` method. Ensure `models/gemini-pro` (or `models/gemini-1.5-pro-latest` if you intend to use it) is in the list.
 
 ### 3. Add Your Documents
 
